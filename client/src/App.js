@@ -9,7 +9,7 @@ import QuizMode from "./components/QuizMode";
 
 function App() {
   const [data, setData] = useState([]);
-  const [screen, setScreen] = useState("welcome");
+  //const [screen, setScreen] = useState("welcome");
 
   const [searchBy, setSearchBy] = useState("");
   const [user, setUser] = useState();
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      {(() => {
+      {/* {(() => {
         switch (screen) {
           case "welcome": {
             return <Login setUser={setUser} setScreen={setScreen} />;
@@ -81,7 +81,7 @@ function App() {
             break;
           }
         }
-      })()}
+      })()} */}
     </div>
   );
 }
