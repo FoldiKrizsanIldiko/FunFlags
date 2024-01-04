@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-const Email = require("mongoose-type-email");
 
 const userSchema = new Schema({
   name: {
@@ -12,7 +11,15 @@ const userSchema = new Schema({
     required: true,
   },
   email: {
-    type: Email,
+    type: String,
+    required: true,
+    unique: true,
+    validate: {
+      validator: function (value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      },
+      message: "Invalid email address format",
+    },
   },
   address: {
     type: String,
