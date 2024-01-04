@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 function ChooseGame(props) {
   const navigate = useNavigate();
-
+  const setUser = props.setUser;
+ function logOut(){
+  setUser();
+  navigate("/")
+ }
   return (
     <div className="App">
       <div className="chooseGame">
@@ -31,6 +35,9 @@ function ChooseGame(props) {
             />
             <p className="gmlabel">Practice Mode with list</p>
           </div>
+          <button className="finishButton" onClick={logOut}>
+            Log out<span></span>
+          </button>
         </div>
       </div>
     </div>

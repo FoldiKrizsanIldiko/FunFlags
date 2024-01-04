@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 function LeaderBoard(props) {
   const sortedUsers = props.sortedUsers;
   const navigate = useNavigate();
+  const setUser=props.setUser;
 
+  function logOut() {
+    setUser();
+    navigate("/");
+  }
   return (
     <div className="App">
       <div className="tableContainer">
@@ -28,6 +33,15 @@ function LeaderBoard(props) {
           className="submitButton"
         >
           New Game <span></span>
+        </button>
+        <button
+          onClick={() => {
+            logOut();
+            navigate("/");
+          }}
+          className="submitButton"
+        >
+          Log out <span></span>
         </button>
       </div>
     </div>

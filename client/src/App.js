@@ -45,7 +45,7 @@ function App() {
 
     {
       path: "/chooseGameMode",
-      element: <ChooseGame />,
+      element: <ChooseGame setUser={setUser} />,
     },
     {
       path: "/quiz",
@@ -72,7 +72,7 @@ function App() {
       element: (
         <div className="leaderboard">
           <h1>High scores </h1>
-          <LeaderBoard sortedUsers={sortedUsers} />
+          <LeaderBoard sortedUsers={sortedUsers} setUser={setUser} />
         </div>
       ),
     },
