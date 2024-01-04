@@ -4,7 +4,6 @@ import quizMode from "../../src/quiz.png";
 import { useNavigate } from "react-router-dom";
 
 function ChooseGame(props) {
-  const setScreen = props.setScreen;
   const navigate = useNavigate();
 
   return (
