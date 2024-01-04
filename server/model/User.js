@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-const Email = require("mongoose-type-email"); // ezzel gond van..Tettem Stringre a mailt, nem tudom jó-e
- 
+const Email = require("mongoose-type-email");
 
 const userSchema = new Schema({
   name: {
@@ -13,7 +12,7 @@ const userSchema = new Schema({
     required: true,
   },
   email: {
-    type: Email,//String
+    type: Email,
   },
   address: {
     type: String,
