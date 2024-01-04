@@ -6,13 +6,12 @@ import { useNavigate } from "react-router-dom";
 function QuizMode(props) {
   const activeUser = props.user;
   const restCountriesAll = props.data;
-  const setScreen = props.setScreen;
   const setSortedUsers = props.setSortedUsers;
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
   const [answerNumber, setAnswerNumber] = useState(4);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
@@ -146,6 +145,7 @@ function QuizMode(props) {
           <button
             className="finishButton"
             onClick={() => {
+              // updateUserScore();
               // toast.dismiss();
               navigate("/chooseGameMode");
             }}

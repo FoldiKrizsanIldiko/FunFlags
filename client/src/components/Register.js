@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 function Register(props) {
   const setUser = props.setUser;
-  const setScreen = props.setScreen;
   const navigate = useNavigate();
 
   function handleSubmit(event) {
@@ -29,7 +28,7 @@ function Register(props) {
           .then((data) =>
             typeof data === "string"
               ? toast("Username already exists!", { theme: "dark" })
-              : (navigate("/chooseGameMode"), setUser(data))
+              : (setUser(data), navigate("/chooseGameMode"))
           )
       : toast("The passwords do not match!", { theme: "dark" });
   }

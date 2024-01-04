@@ -11,7 +11,6 @@ import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
   const [data, setData] = useState([]);
-  const [screen, setScreen] = useState("welcome");
   const [searchBy, setSearchBy] = useState("");
   const [user, setUser] = useState();
   const [sortedUsers, setSortedUsers] = useState([]);
@@ -36,27 +35,22 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Login setUser={setUser} setScreen={setScreen} />,
+      element: <Login setUser={setUser} />,
     },
 
     {
       path: "/register",
-      element: <Register setUser={setUser} setScreen={setScreen} />,
+      element: <Register setUser={setUser} />,
     },
 
     {
       path: "/chooseGameMode",
-      element: <ChooseGame setScreen={setScreen} />,
+      element: <ChooseGame />,
     },
     {
       path: "/quiz",
       element: (
-        <QuizMode
-          data={data}
-          setScreen={setScreen}
-          user={user}
-          setSortedUsers={setSortedUsers}
-        />
+        <QuizMode data={data} user={user} setSortedUsers={setSortedUsers} />
       ),
     },
     {
@@ -67,7 +61,6 @@ function App() {
             data={data}
             searchBy={searchBy}
             setSearchBy={setSearchBy}
-            setScreen={setScreen}
             user={user}
             setSortedUsers={setSortedUsers}
           />
@@ -79,7 +72,7 @@ function App() {
       element: (
         <div className="leaderboard">
           <h1>High scores </h1>
-          <LeaderBoard sortedUsers={sortedUsers} setScreen={setScreen} />
+          <LeaderBoard sortedUsers={sortedUsers} />
         </div>
       ),
     },
