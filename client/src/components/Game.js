@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function Game(props) {
   //ide majd useProps wagy rögtön distrust
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState();
   const [randCountry, setRandCountry] = useState();
   const [score, setScore] = useState(0);
@@ -14,11 +14,11 @@ function Game(props) {
   const searchBy = props.searchBy;
   const setSearchBy = props.setSearchBy;
   const data = props.data;
-  const setScreen = props.setScreen;
   const user = props.user;
   const setSortedUsers = props.setSortedUsers;
+
   useEffect(() => {
-    randomFlagFn();
+    getRandomFlag();
   }, []);
 
   function handleSubmit(e) {
@@ -28,7 +28,7 @@ function Game(props) {
       if (counter === 1) setScore(score + 5);
       if (counter === 2) setScore(score + 2);
       setCounter(0);
-      randomFlagFn();
+      getRandomFlag();
       toast("Made it, next turn!", { theme: "dark" });
     } else {
       if (counter === 0) {
@@ -42,7 +42,7 @@ function Game(props) {
           theme: "dark",
         });
       } else {
-        randomFlagFn();
+        getRandomFlag();
         setCounter(0);
         toast(`Lets try another... It was ${randCountry.name}`, {
           theme: "dark",
@@ -61,11 +61,12 @@ function Game(props) {
   function isTheAnswerCorrect(countryName, e) {
     setSelectedCountry(countryName);
   }
+
   useEffect(() => {
     console.log(randCountry);
   }, [randCountry]);
 
-  function randomFlagFn() {
+  function getRandomFlag() {
     setSearchBy("");
     if (data.length > 0) {
       let randNum = Math.floor(Math.random() * data.length);
@@ -123,8 +124,8 @@ function Game(props) {
         <div className="countryNames">
           {data.length > 0 &&
             data
-              .filter((cou) =>
-                cou.name.toLowerCase().includes(searchBy.toLowerCase())
+              .filter((country) =>
+                country.name.toLowerCase().includes(searchBy.toLowerCase())
               )
               .map((country) => (
                 <div
