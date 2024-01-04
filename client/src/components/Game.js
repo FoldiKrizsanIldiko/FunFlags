@@ -98,7 +98,6 @@ function Game(props) {
   return (
     <div className="App">
       <div className="gameFirstDiv">
-        <p>Logged in as {user.name}</p>
         <span className="text">What country does this flag belongs to?</span>
         <img
           className="randomFlag"
