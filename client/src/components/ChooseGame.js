@@ -23,7 +23,7 @@ function ChooseGame(props) {
                 navigate("/quiz");
               }}
             />
-            <p className="gmlabel">Quiz Mode with 4 possible answer</p>
+            <p className="gmlabel">Quiz Mode with possible answers</p>
           </div>
           <div>
             <img
