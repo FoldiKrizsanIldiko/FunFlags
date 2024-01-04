@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 function LeaderBoard(props) {
   const sortedUsers = props.sortedUsers;
-  const setScreen = props.setScreen;
- const navigate = useNavigate();
-  useEffect(() => {
-    //console.log(sortedUsers);
-  }, [sortedUsers]);
+  const navigate = useNavigate();
 
   return (
     <div className="App">
