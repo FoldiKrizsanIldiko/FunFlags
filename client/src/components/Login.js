@@ -9,23 +9,19 @@ function Login(props) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(
-      "event targetek: " + event.target[0].value,
-      event.target[1].value
-    );
-
     fetch(
       `http://localhost:3001/${event.target[0].value}/${event.target[1].value}`
     )
       .then((res) => res.json())
-      .then((data) =>
-        data.name
+      .then((data) => {
+        console.log(data);
+        return data.name
           ? (setUser(data), navigate("/chooseGameMode"))
           : toast.error("Incorrect name and/or password!", {
               theme: "colored",
               position: "top-right",
-            })
-      );
+            });
+      });
   }
 
   return (
