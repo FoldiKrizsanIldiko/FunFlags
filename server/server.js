@@ -45,9 +45,8 @@ app.get("/:name/:password", async (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { name, password, password2, address, email } = req.body;
+  const { name, password, password2, address, email } = req.body; //check if password2 is equal to password
   const salt = await bcrypt.genSalt(10);
-  console.log(salt);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
     const userNameExists = await User.findOne({ name: name });
