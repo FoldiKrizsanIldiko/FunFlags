@@ -1,12 +1,9 @@
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
-//import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 
 function Login(props) {
   const setUser = props.setUser;
-  const setScreen = props.setScreen;
   const navigate = useNavigate();
 
   function handleSubmit(event) {
