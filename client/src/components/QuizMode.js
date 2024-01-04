@@ -12,7 +12,6 @@ function QuizMode(props) {
   const [quizScore, setQuizScore] = useState(0);
   const [answerNumber, setAnswerNumber] = useState(4);
   const navigate = useNavigate();
-
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
   }
@@ -22,8 +21,6 @@ function QuizMode(props) {
   }
 
   async function updateUserScore() {
-    console.log(activeUser);
-    //toast.dismiss();
     try {
       const res = await fetch("http://localhost:3001/api/score", {
         method: "PATCH",
@@ -31,7 +28,6 @@ function QuizMode(props) {
         body: JSON.stringify({ name: activeUser.name, score: quizScore }),
       });
       const data = await res.json();
-      //console.log(data);
       setSortedUsers(data);
       navigate("/leaderboard");
     } catch (error) {
@@ -145,8 +141,7 @@ function QuizMode(props) {
           <button
             className="finishButton"
             onClick={() => {
-              // updateUserScore();
-              // toast.dismiss();
+               updateUserScore();
               navigate("/chooseGameMode");
             }}
           >
