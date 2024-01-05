@@ -8,8 +8,21 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributor1-url][contributor2-url][contributor3-url]
-[![LinkedIn][linkedin-shield]][linkedin1-url][linkedin2-url][linkedin3-url]
+![Contributors](https://img.shields.io/badge/-_Contributors-red.svg?logo=github&style=for-the-badge)
+
+[![Imre Stumpf](https://img.shields.io/badge/Imre%20Stumpf-blue.svg?logo=github)][contributor1-url]
+[![Balázs Oltvolgyi](https://img.shields.io/badge/Bal%C3%A1zs%20Olv%C3%B6lgyi-blue.svg?logo=github)][contributor2-url]
+[![Földi Krizsán Ildikó](https://img.shields.io/badge/F%C3%B6ldi%20Krizs%C3%A1n%20Ildik%C3%B3-blue.svg?logo=github)][contributor3-url]
+
+![LinkedIn][linkedin-shield]
+
+[![Imre Stumpf](https://img.shields.io/badge/-_Imre%20Stumpf-grey.svg?logo=linkedin&colorB=555)][linkedin1-url]
+[![Balázs Oltvolgyi](https://img.shields.io/badge/-_Bal%C3%A1zs%20Olv%C3%B6lgyi-grey.svg?logo=linkedin&colorB=555)][linkedin2-url]
+[![Static Badge](https://img.shields.io/badge/-_%20F%C3%B6ldi%20Krizs%C3%A1n%20Ildik%C3%B3-grey.svg?logo=linkedin&colorB=555)][linkedin3-url]
+
+
+
+
 
 
 
@@ -197,7 +210,6 @@ Project Link: [https://github.com/FoldiKrizsanIldiko/FunFlags](https://github.co
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributor1-url]: https://github.com/Surmi64
 [contributor2-url]: https://github.com/balazs-oltvolgyi
 [contributor3-url]: https://github.com/FoldiKrizsanIldiko
