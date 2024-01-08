@@ -36,12 +36,13 @@
 <h3 align="center">Fun with Flags</h3>
 
   <p align="center">
-    This is an educational game with the goal of learning the flags of all countries. You can achieve this by guessing which country a given flag belongs to. You can choose between quiz mode, where suggestions are provided, or, if you are more experienced, you can play without any hints.
+    This is an educational game with the goal of learning the flags of all countries. You can achieve this by guessing which country the given flag belongs to. You can choose between quiz mode, where suggestions are provided, or, if you are more experienced, you can play without any hints.
     <br />
     <a href="https://github.com/FoldiKrizsanIldiko/FunFlags"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/FoldiKrizsanIldiko/FunFlags">View Demo</a>
+    ide kellene egy youtoub video, ahol van egy regisztráció, és egy kicsi játék bemutató, csak pár másodperc...
 </div>
 
 
@@ -77,9 +78,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- ![Product Name Screen Shot][product-screenshot] -->
+<p align="center">
+<img src="./client/public/scrsh1.png" width="50%" >
+</p>
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+
+Embark on an enriching experience with our flag identification game, offering both quiz and select modes. Challenge yourself as the flags of various countries appear, providing an opportunity to test your geographical knowledge. In quiz mode, choose from the displayed countries, while in select mode, choose the correct country from all the cuntries of world. With a diverse array of flags from around the world, this game provides an engaging and educational platform to enhance your global awareness and flag recognition skills.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,14 +93,12 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
+
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![Express][Express.io]][Express-url]
+* [![MongoDB][MongoDB.io]][MongoDb-url]
+* [![AWSlambda][AWSLambda.io]][AWSLambda-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,32 +107,39 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Please follow next steps to set up the game.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/FoldiKrizsanIldiko/FunFlags.git
    ```
+2. Navigate to the 'server' subdirectory within the cloned directory.
+    ```sh
+    cd server
+    ``` 
 3. Install NPM packages
    ```sh
-   npm install
+   npm i
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Start running the frontend
+    ```sh
+    npm run dev
+    ```       
+5. Navigate to the 'client' subdirectory within the cloned directory.
+    ```sh
+    cd client
+    ```   
+6. Install NPM packages
+   ```sh
+   npm i
    ```
+7. Start running the frontend
+    ```sh
+    npm start
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -225,20 +236,12 @@ Project Link: [https://github.com/FoldiKrizsanIldiko/FunFlags](https://github.co
 [linkedin1-url]: https://www.linkedin.com/in/istumpf/
 [linkedin2-url]: https://www.linkedin.com/in/balazs-o/
 [linkedin3-url]:https://www.linkedin.com/in/ildiko-foldi-krizsan/
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
+[product-screenshot]: client/public/scrsh1.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[Express.io]: https://img.shields.io/badge/Express-20232A?style=for-the-badge&logo=Express&logoColor=47A248
+[Express-url]:https://expressjs.com/
+[MongoDB.io]: https://img.shields.io/badge/MongoDB-20232A?style=for-the-badge&logo=MongoDB&logoColor=47A248
+[MongoDb-url]:https://www.mongodb.com/atlas/database
+[AWSLambda.io]:https://img.shields.io/badge/Lambda-20232A?style=for-the-badge&logo=AWSLambda&logoColor=FF9900
+[AWSLambda-url]:https://aws.amazon.com/pm/lambda/?gclid=CjwKCAiA1-6sBhAoEiwArqlGPuZDskT0wZIcIb3EISWuN_425YQqAIuiPF_OFZg6mHAQzxswLGZ66hoCEx4QAvD_BwE&trk=5e541ab3-2fcc-4151-9e08-fdea53dc7fb8&sc_channel=ps&ef_id=CjwKCAiA1-6sBhAoEiwArqlGPuZDskT0wZIcIb3EISWuN_425YQqAIuiPF_OFZg6mHAQzxswLGZ66hoCEx4QAvD_BwE:G:s&s_kwcid=AL!4422!3!651541907473!e!!g!!aws%20lambda!19836375769!150670855801
