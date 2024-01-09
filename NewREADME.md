@@ -133,9 +133,34 @@ Please follow next steps to set up the game.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+You have to register when you open the game for the first time. 
+<p align="left">
+<img src="./client/public/register.png" width="25%" >
+</p>
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+You will need to log in later when you start the game.
+
+After logging in, you can choose if you want to play in quize mode or practice mode.
+
+<p align="left">
+<img src="./client/public/choose.png" width="25%" >
+</p>
+
+In quiz mode you have to click on button, with the name of country.
+
+<p align="left">
+<img src="./client/public/quizM.png" width="20%" >
+</p>
+
+In practice mode, there are a list of all countries. If you start to type in your tip, the list will be selected. You have to choose from the list, click on it, and than submit your answer, by clicking on Submit answer button.
+
+<p align="left">
+<img src="./client/public/practM.png" width="20%" >
+</p>
+
+If you want to finish the game just hit the Finish game button, and you will see the leaderboard.
+
+Have fun!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
