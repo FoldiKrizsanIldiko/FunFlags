@@ -10,7 +10,7 @@ function QuizMode(props) {
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
-  const [answerNumber, setAnswerNumber] = useState(4);
+  const answerNumber = 4;
   const navigate = useNavigate();
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
@@ -86,7 +86,7 @@ function QuizMode(props) {
       <div className="App">
         <div className="quizMain">
           <div className="flagContainer">
-            <img className="quizFlag" src={randomCountry.flag} />
+            <img alt="quizFlag" className="quizFlag" src={randomCountry.flag} />
           </div>
           <h1 className="title">Flag of ...</h1>
           <div className="firstRow">
@@ -141,7 +141,7 @@ function QuizMode(props) {
           <button
             className="finishButton"
             onClick={() => {
-               updateUserScore();
+              updateUserScore();
               navigate("/chooseGameMode");
             }}
           >

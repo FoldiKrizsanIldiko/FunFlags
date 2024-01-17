@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 function ChooseGame(props) {
   const navigate = useNavigate();
   const setUser = props.setUser;
- function logOut(){
-  setUser();
-  navigate("/")
- }
+  function logOut() {
+    setUser();
+    navigate("/");
+  }
   return (
     <div className="App">
       <div className="chooseGame">
@@ -17,6 +17,7 @@ function ChooseGame(props) {
         <div className="chooseGameMode">
           <div>
             <img
+              alt="QuizMode"
               className="gameMode1"
               src={quizMode}
               onClick={() => {
@@ -27,6 +28,7 @@ function ChooseGame(props) {
           </div>
           <div>
             <img
+              alt="PracticeMode"
               className="gameMode2"
               src={practice}
               onClick={() => {

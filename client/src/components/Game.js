@@ -17,9 +17,7 @@ function Game(props) {
   const user = props.user;
   const setSortedUsers = props.setSortedUsers;
 
-  useEffect(() => {
-    getRandomFlag();
-  }, []);
+  getRandomFlag();
 
   function handleSubmit(e) {
     e.preventDefault();
