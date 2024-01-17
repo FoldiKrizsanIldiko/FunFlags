@@ -73,11 +73,14 @@ function Game(props) {
   }
   async function updateUserScore() {
     try {
-      const res = await fetch("http://localhost:3001/api/score", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: user.name, score: score }),
-      });
+      const res = await fetch(
+        "https://8lgwxkv9w6.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: user.name, score: score }),
+        }
+      );
       const data = await res.json();
       //console.log(data);
       setSortedUsers(data);
