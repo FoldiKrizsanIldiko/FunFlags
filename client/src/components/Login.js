@@ -10,7 +10,7 @@ function Login(props) {
     event.preventDefault();
 
     fetch(
-      `http://localhost:3001/${event.target[0].value}/${event.target[1].value}`
+      `https://4rjjlsl47e.execute-api.eu-west-2.amazonaws.com/flags-get1/user/${event.target[0].value}/${event.target[1].value}`
     )
       .then((res) => res.json())
       .then((data) => {

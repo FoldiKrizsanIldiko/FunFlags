@@ -23,11 +23,14 @@ function QuizMode(props) {
 
   async function updateUserScore() {
     try {
-      const res = await fetch("http://localhost:3001/api/score", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: activeUser.name, score: quizScore }),
-      });
+      const res = await fetch(
+        "https://jsi3s3s492.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: activeUser.name, score: quizScore }),
+        }
+      );
       const data = await res.json();
       setSortedUsers(data);
       navigate("/leaderboard");
