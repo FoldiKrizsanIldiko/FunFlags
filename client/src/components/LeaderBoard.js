@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function LeaderBoard(props) {
   const sortedUsers = props.sortedUsers;
   const navigate = useNavigate();
-  const setUser=props.setUser;
+  const setUser = props.setUser;
 
   function logOut() {
     setUser();

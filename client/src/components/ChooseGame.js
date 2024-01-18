@@ -17,18 +17,16 @@ function ChooseGame(props) {
         <div className="chooseGameMode">
           <div>
             <img
-              alt="QuizMode"
               className="gameMode1"
               src={quizMode}
               onClick={() => {
                 navigate("/quiz");
               }}
             />
-            <p className="gmlabel">Quiz Mode with 4 possible answer</p>
+            <p className="gmlabel">Quiz Mode with possible answers</p>
           </div>
           <div>
             <img
-              alt="PracticeMode"
               className="gameMode2"
               src={practice}
               onClick={() => {

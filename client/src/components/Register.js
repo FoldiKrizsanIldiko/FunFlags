@@ -20,14 +20,10 @@ function Register(props) {
 
     newUser.password === newUser.password2
       ? fetch(
-          "https://g1npuzfff6.execute-api.eu-west-2.amazonaws.com/default/flags-post",
+          " https://g1npuzfff6.execute-api.eu-west-2.amazonaws.com/default/flags-post",
           {
             method: "POST",
-
-            headers: {
-              "Content-Type": "application/json",
-              Origin: "http://localhost:3000",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newUser),
           }
         )

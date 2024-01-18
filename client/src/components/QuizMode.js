@@ -10,8 +10,9 @@ function QuizMode(props) {
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
-  const answerNumber = 4;
+  const [answerNumber, setAnswerNumber] = useState();
   const navigate = useNavigate();
+
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
   }
@@ -22,11 +23,14 @@ function QuizMode(props) {
 
   async function updateUserScore() {
     try {
-      const res = await fetch("http://localhost:3001/api/score", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: activeUser.name, score: quizScore }),
-      });
+      const res = await fetch(
+        "https://jsi3s3s492.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: activeUser.name, score: quizScore }),
+        }
+      );
       const data = await res.json();
       setSortedUsers(data);
       navigate("/leaderboard");
@@ -74,86 +78,103 @@ function QuizMode(props) {
         theme: "colored",
         autoClose: 3000,
       });
-  }, []);
+  }, [answerNumber]);
 
   useEffect(() => {
     randomCountry && generateCountryOptions();
   }, [randomCountry]);
 
   return (
-    randomCountry &&
-    fourCountryName && (
-      <div className="App">
-        <div className="quizMain">
-          <div className="flagContainer">
-            <img alt="quizFlag" className="quizFlag" src={randomCountry.flag} />
+    <div className="App">
+      {answerNumber ? (
+        randomCountry &&
+        fourCountryName && (
+          <div className="quizMain">
+            <div className="flagContainer">
+              <img className="quizFlag" src={randomCountry.flag} />
+            </div>
+            <h1 className="title">Flag of ...</h1>
+            <div className="firstRow">
+              <div className="answer">
+                <button
+                  className="finishButton"
+                  key={1}
+                  value={fourCountryName[0]}
+                  onClick={(e) => selectCountry(e.target.value)}
+                >
+                  {fourCountryName[0]}
+                  <span></span>
+                </button>
+              </div>
+              <div className="answer">
+                <button
+                  className="finishButton"
+                  key={2}
+                  value={fourCountryName[1]}
+                  onClick={(e) => selectCountry(e.target.value)}
+                >
+                  {fourCountryName[1]}
+                  <span></span>
+                </button>
+              </div>
+            </div>
+            <div className="secondRow">
+              <div className="answer">
+                <button
+                  className="finishButton"
+                  key={3}
+                  value={fourCountryName[2]}
+                  onClick={(e) => selectCountry(e.target.value)}
+                >
+                  {fourCountryName[2]}
+                  <span></span>
+                </button>
+              </div>
+              <div className="answer">
+                <button
+                  className="finishButton"
+                  key={4}
+                  value={fourCountryName[3]}
+                  onClick={(e) => selectCountry(e.target.value)}
+                >
+                  {fourCountryName[3]}
+                  <span></span>
+                </button>
+              </div>
+            </div>
+            <div className="quizScore">Your score: {quizScore}</div>
+            <button
+              className="finishButton"
+              onClick={() => {
+                updateUserScore();
+                navigate("/chooseGameMode");
+              }}
+            >
+              Back to game modes<span></span>
+            </button>
+            <button className="finishButton" onClick={updateUserScore}>
+              Finish Game<span></span>
+            </button>
+            <ToastContainer theme="dark" />
           </div>
-          <h1 className="title">Flag of ...</h1>
-          <div className="firstRow">
-            <div className="answer">
-              <button
-                className="finishButton"
-                key={1}
-                value={fourCountryName[0]}
-                onClick={(e) => selectCountry(e.target.value)}
-              >
-                {fourCountryName[0]}
-                <span></span>
-              </button>
-            </div>
-            <div className="answer">
-              <button
-                className="finishButton"
-                key={2}
-                value={fourCountryName[1]}
-                onClick={(e) => selectCountry(e.target.value)}
-              >
-                {fourCountryName[1]}
-                <span></span>
-              </button>
-            </div>
-          </div>
-          <div className="secondRow">
-            <div className="answer">
-              <button
-                className="finishButton"
-                key={3}
-                value={fourCountryName[2]}
-                onClick={(e) => selectCountry(e.target.value)}
-              >
-                {fourCountryName[2]}
-                <span></span>
-              </button>
-            </div>
-            <div className="answer">
-              <button
-                className="finishButton"
-                key={4}
-                value={fourCountryName[3]}
-                onClick={(e) => selectCountry(e.target.value)}
-              >
-                {fourCountryName[3]}
-                <span></span>
-              </button>
-            </div>
-          </div>
-          <div className="quizScore">Your score: {quizScore}</div>
-          <button
-            className="finishButton"
-            onClick={() => {
-              updateUserScore();
-              navigate("/chooseGameMode");
-            }}
-          >
-            Back to game modes<span></span>
+        )
+      ) : (
+        <div>
+          <h1 className="title">
+            From how many possible answers do you want to choose
+          </h1>
+          <button onClick={() => setAnswerNumber(2)}>
+            2 <span></span>
           </button>
-          <button className="finishButton" onClick={updateUserScore}>
-            Finish Game<span></span>
+          <button onClick={() => setAnswerNumber(3)}>
+            3 <span></span>
           </button>
-          <ToastContainer theme="dark" />
+          <button onClick={() => setAnswerNumber(4)}>
+            4 <span></span>
+          </button>
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 }
 

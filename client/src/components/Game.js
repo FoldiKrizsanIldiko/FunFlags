@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 function Game(props) {
-  //ide majd useProps wagy rögtön distrust
   const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState();
   const [randCountry, setRandCountry] = useState();
@@ -17,7 +16,9 @@ function Game(props) {
   const user = props.user;
   const setSortedUsers = props.setSortedUsers;
 
-  getRandomFlag();
+  useEffect(() => {
+    getRandomFlag();
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
