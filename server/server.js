@@ -9,7 +9,7 @@ const app = express();
 const connectionString = process.env.MONGO_URL;
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -28,9 +28,7 @@ app.use(
 
 mongoose.connect(connectionString).then(console.log("Server connection OK!"));
 
-// name and password validation
 app.get("/:name/:password", async (req, res) => {
-  //console.log(req.params.name, req.params.password);
   const { name, password } = req.params;
   try {
     let foundUser;
@@ -47,9 +45,8 @@ app.get("/:name/:password", async (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { name, password, password2, address, email } = req.body;
+  const { name, password, password2, address, email } = req.body; 
   const salt = await bcrypt.genSalt(10);
-  console.log(salt);
   const hashedPassword = await bcrypt.hash(password, salt);
   try {
     const userNameExists = await User.findOne({ name: name });

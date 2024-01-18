@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Game from "./components/Game.js";
-import LeaderBoard from "./components/LeaderBoard";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ChooseGame from "./components/ChooseGame";
 import QuizMode from "./components/QuizMode";
+import Game from "./components/Game";
+import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
   const [data, setData] = useState([]);
-  const [screen, setScreen] = useState("welcome");
-
   const [searchBy, setSearchBy] = useState("");
   const [user, setUser] = useState();
   const [sortedUsers, setSortedUsers] = useState([]);
@@ -32,57 +32,57 @@ function App() {
       .catch((e) => console.log(e));
   }, []);
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login setUser={setUser} />,
+    },
+
+    {
+      path: "/register",
+      element: <Register setUser={setUser} />,
+    },
+
+    {
+      path: "/chooseGameMode",
+      element: <ChooseGame setUser={setUser} />,
+    },
+    {
+      path: "/quiz",
+      element: (
+        <QuizMode data={data} user={user} setSortedUsers={setSortedUsers} />
+      ),
+    },
+    {
+      path: "/game",
+      element: (
+        <div className="gameDiv">
+          <Game
+            data={data}
+            searchBy={searchBy}
+            setSearchBy={setSearchBy}
+            user={user}
+            setSortedUsers={setSortedUsers}
+          />
+        </div>
+      ),
+    },
+    {
+      path: "/leaderboard",
+      element: (
+        <div className="leaderboard">
+          <h1>High scores </h1>
+          <LeaderBoard sortedUsers={sortedUsers} setUser={setUser} />
+        </div>
+      ),
+    },
+  ]);
   return (
-    <div className="App">
-      {(() => {
-        switch (screen) {
-          case "welcome": {
-            return <Login setUser={setUser} setScreen={setScreen} />;
-          }
-          case "register": {
-            return <Register setUser={setUser} setScreen={setScreen} />;
-          }
-          case "chooseGameMode": {
-            return <ChooseGame setScreen={setScreen} />;
-          }
-          case "quiz": {
-            return (
-              <QuizMode
-                data={data}
-                setScreen={setScreen}
-                user={user}
-                setSortedUsers={setSortedUsers}
-              />
-            );
-          }
-          case "game": {
-            return (
-              <div className="gameDiv">
-                <Game
-                  data={data}
-                  searchBy={searchBy}
-                  setSearchBy={setSearchBy}
-                  setScreen={setScreen}
-                  user={user}
-                  setSortedUsers={setSortedUsers}
-                />
-              </div>
-            );
-          }
-          case "leaderboard": {
-            return (
-              <div className="leaderboard">
-                <h1>High scores </h1>
-                <LeaderBoard sortedUsers={sortedUsers} setScreen={setScreen} />
-              </div>
-            );
-          }
-          default: {
-            break;
-          }
-        }
-      })()}
-    </div>
+    <React.StrictMode>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
+    </React.StrictMode>
   );
 }
 
