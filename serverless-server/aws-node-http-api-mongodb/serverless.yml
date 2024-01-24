@@ -1,0 +1,48 @@
+useDotenv: true
+service: aws-node-http-api-mongodb
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-2
+  profile: profile2
+  httpApi:
+    cors: true
+
+plugins:
+  - serverless-dotenv-plugin
+
+package:
+  patterns:
+    - '!.env'
+    
+functions:
+  createUser:
+    handler: handler.createUser
+    environment:
+      MONGO_URL: ${env:MONGO_URL}
+    events:
+      - httpApi:
+          path: /user
+          method: post
+
+  updateUser:
+    handler: handler.updateUser
+    environment:
+      MONGO_URL: ${env:MONGO_URL}
+    events:
+      - httpApi:
+          path: /user
+          method: patch
+
+
+  user:
+    handler: handler.user
+    environment:
+      MONGO_URL: ${env:MONGO_URL}
+    events:
+      - httpApi:
+          path: /user/{name}/{password}
+          method: get
