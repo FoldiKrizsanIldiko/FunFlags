@@ -20,6 +20,7 @@
   <a href="https://github.com/FoldiKrizsanIldiko/FunFlags">
     <img src="../client/public/favicon.png" alt="Logo" width="80" height="80">
   </a>
+</div>
 
 <h3 align="center">Fun with Flags</h3>
 
