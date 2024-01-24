@@ -31,8 +31,11 @@
     <a href="https://github.com/FoldiKrizsanIldiko/FunFlags"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/FoldiKrizsanIldiko/FunFlags">View Demo</a>
-    ide kellene egy youtoub video, ahol van egy regisztráció, és egy kicsi játék bemutató, csak pár másodperc...
+
+   <p> In our demo youtube video you can find out how to register for the game, how to play in practice mode and how to play like a real pro. </p>
+<a href="https://www.youtube.com/watch?v=SNrXQFxzml4" style="font-size:20px;">View Demo</a>
+
+
 </div>
 
 
