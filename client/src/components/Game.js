@@ -23,6 +23,7 @@ function Game(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(inputRef.current.value);
     if (inputRef.current.value === randCountry.name) {
       if (counter === 0) setScore(score + 10);
       if (counter === 1) setScore(score + 5);
