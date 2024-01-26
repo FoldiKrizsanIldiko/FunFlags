@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Game(props) {
   const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState();
-  const [randCountry, setRandCountry] = useState();
+  const [randCountry, setRandCountry] = useState();//it helps to put the selected countryname from list to input fileld for answer
   const [score, setScore] = useState(0);
   const [counter, setCounter] = useState(0);
   const searchBy = props.searchBy;
@@ -15,6 +15,7 @@ function Game(props) {
   const data = props.data;
   const user = props.user;
   const setSortedUsers = props.setSortedUsers;
+  const inputRef = useRef(null);
 
   useEffect(() => {
     getRandomFlag();
@@ -22,7 +23,7 @@ function Game(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (selectedCountry === randCountry.name) {
+    if (inputRef.current.value === randCountry.name) {
       if (counter === 0) setScore(score + 10);
       if (counter === 1) setScore(score + 5);
       if (counter === 2) setScore(score + 2);
@@ -111,6 +112,7 @@ function Game(props) {
             onChange={(event) => setSearchBy(event.target.value)}
             placeholder="Search and click"
             value={selectedCountry && selectedCountry}
+            ref={inputRef}
           />
           <br />
           <button className="submitButton" onClick={(e) => handleSubmit(e)}>
