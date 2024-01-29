@@ -1,16 +1,25 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
 
 function Login(props) {
   const setUser = props.setUser;
   const navigate = useNavigate();
 
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
   function handleSubmit(event) {
     event.preventDefault();
 
     fetch(
-      `https://4rjjlsl47e.execute-api.eu-west-2.amazonaws.com/flags-get1/user/${event.target[0].value}/${event.target[1].value}`
+      `https://zldnuw6vi1.execute-api.eu-west-2.amazonaws.com/user/${event.target[0].value}/${event.target[1].value}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -23,6 +32,19 @@ function Login(props) {
             });
       });
   }
+
+   function submitCaptcha() {
+     let user_captcha = document.getElementById("user_captcha_input").value;
+
+     if (validateCaptcha(user_captcha) === true) {
+       alert("Captcha Matched");
+       loadCaptchaEnginge(6);
+       document.getElementById("user_captcha_input").value = "";
+     } else {
+       alert("Captcha Does Not Match");
+       document.getElementById("user_captcha_input").value = "";
+     }
+   }
 
   return (
     <div className="App">
@@ -56,6 +78,33 @@ function Login(props) {
           Register<span></span>
         </button>
         <ToastContainer theme="dark" position="top-right" />
+        <div className="container">
+          <div className="form-group">
+            <div className="col mt-3">
+              <LoadCanvasTemplate />
+            </div>
+
+            <div className="col mt-3">
+              <div>
+                <input
+                  placeholder="Enter Captcha Value"
+                  id="user_captcha_input"
+                  name="user_captcha_input"
+                  type="text"
+                >
+                </input>
+              </div>
+            </div>
+
+            <div className="col mt-3">
+              <div>
+                <button class="btn btn-primary" onClick={() => submitCaptcha()}>
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

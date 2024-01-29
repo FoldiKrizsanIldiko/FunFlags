@@ -24,7 +24,7 @@ function QuizMode(props) {
   async function updateUserScore() {
     try {
       const res = await fetch(
-        "https://jsi3s3s492.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+        "https://zldnuw6vi1.execute-api.eu-west-2.amazonaws.com/user",
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
