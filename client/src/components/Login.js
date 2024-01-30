@@ -17,7 +17,7 @@ function Login(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
+ submitCaptcha()&& 
     fetch(
       `https://zldnuw6vi1.execute-api.eu-west-2.amazonaws.com/user/${event.target[0].value}/${event.target[1].value}`
     )
@@ -37,12 +37,11 @@ function Login(props) {
      let user_captcha = document.getElementById("user_captcha_input").value;
 
      if (validateCaptcha(user_captcha) === true) {
-       alert("Captcha Matched");
-       loadCaptchaEnginge(6);
-       document.getElementById("user_captcha_input").value = "";
+       return true;
      } else {
        alert("Captcha Does Not Match");
        document.getElementById("user_captcha_input").value = "";
+       return false;
      }
    }
 
@@ -66,18 +65,7 @@ function Login(props) {
             <input type="password" required={true}></input>
             <label>Password: </label>
           </div>
-          <button type="submit" className="userFormButton">
-            Start game<span></span>
-          </button>
-        </form>
-        <button
-          style={{ fontSize: "small" }}
-          onClick={() => navigate("/register")}
-          className="userFormButton"
-        >
-          Register<span></span>
-        </button>
-        <ToastContainer theme="dark" position="top-right" />
+    <ToastContainer theme="dark" position="top-right" />
         <div className="container">
           <div className="form-group">
             <div className="col mt-3">
@@ -95,16 +83,21 @@ function Login(props) {
                 </input>
               </div>
             </div>
-
-            <div className="col mt-3">
-              <div>
-                <button className="btn btn-primary" onClick={() => submitCaptcha()}>
-                  Submit
-                </button>
-              </div>
-            </div>
           </div>
         </div>
+          
+          <button type="submit" className="userFormButton">
+            Start game<span></span>
+          </button>
+        </form>
+        <button
+          style={{ fontSize: "small" }}
+          onClick={() => submitCaptcha() && navigate("/register")}
+          className="userFormButton"
+        >
+          Register<span></span>
+        </button>
+    
       </div>
     </div>
   );
