@@ -90,13 +90,14 @@ function Login(props) {
             Start game<span></span>
           </button>
         </form>
-        <button
+<p>We temporarily removed registration.</p>
+{/*<button
           style={{ fontSize: "small" }}
           onClick={() => submitCaptcha() && navigate("/register")}
           className="userFormButton"
         >
           Register<span></span>
-        </button>
+        </button>*/}
     
       </div>
     </div>
