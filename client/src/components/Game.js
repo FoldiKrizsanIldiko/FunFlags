@@ -122,8 +122,8 @@ function Game(props) {
           <ToastContainer theme="dark" />
         </form>
         <div className="Score">Your score is {score}</div>
-        <button className="finishButton" onClick={handleFinish}>
-          Finish the game<span></span>
+        <button className="finishButton1" onClick={handleFinish}>
+          Finish the game
         </button>
         <div className="countryNames">
           {data.length > 0 &&
