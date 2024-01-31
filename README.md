@@ -24,7 +24,7 @@
 <h3 align="center">Fun with Flags</h3>
 
   <p align="center">
-    This is an educational game with the goal of learning the flags of all countries. You can achieve this by guessing which country the given flag belongs to. You can choose between quiz mode, where suggestions are provided, or, if you are more experienced, you can play without any hints.
+    This is an educational game with the goal of learning the flags of all countries. You can achieve by guessing which country the given flag belongs to. You can choose between quiz mode, where suggestions are provided, or, if you are more experienced, you can play without any hints.
     <br />
     <a href="https://github.com/FoldiKrizsanIldiko/FunFlags"><strong>Explore the docs »</strong></a>
     <br />
