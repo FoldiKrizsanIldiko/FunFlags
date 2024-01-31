@@ -77,7 +77,7 @@ function Game(props) {
   async function updateUserScore() {
     try {
       const res = await fetch(
-        "https://8lgwxkv9w6.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+        "https://zldnuw6vi1.execute-api.eu-west-2.amazonaws.com/user",
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
