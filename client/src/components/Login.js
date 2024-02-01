@@ -55,7 +55,7 @@ function Login(props) {
           <br />
           Before you start, please log in:
         </h2>
-        <br></br>
+        {/* <br></br> */}
         <form className="userForm" onSubmit={(event) => handleSubmit(event)}>
           <div className="user-box">
             <input type="text" required={true}></input>
