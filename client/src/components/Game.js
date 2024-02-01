@@ -122,7 +122,9 @@ function Game(props) {
           <ToastContainer theme="dark" />
         </form>
         <div className="Score">Your score is {score}</div>
-        <button className="finishButton1" onClick={handleFinish}>
+        <button className="finishButton1" style={{
+          marginLeft:"-600px"
+        }} onClick={handleFinish}>
           Finish the game
         </button>
         <div className="countryNames">

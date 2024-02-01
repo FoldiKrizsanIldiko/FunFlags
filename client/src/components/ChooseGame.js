@@ -35,7 +35,7 @@ function ChooseGame(props) {
             />
             <p className="gmlabel">Practice Mode with list</p>
           </div>
-          <button className="finishButton" onClick={logOut}>
+          <button className="finishButton" onClick={logOut} style={{height:"80px", width:"130px"}}>
             Log out<span></span>
           </button>
         </div>
