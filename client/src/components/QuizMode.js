@@ -163,14 +163,26 @@ function QuizMode(props) {
           <h1 className="title">
             From how many possible answers do you want to choose
           </h1>
-          <button onClick={() => setAnswerNumber(2)}>
-            2 <span></span>
+          <button
+            className="finishButton1"
+            style={{ width: "33%", height: "200%", marginTop: "110px" }}
+            onClick={() => setAnswerNumber(2)}
+          >
+            2
           </button>
-          <button onClick={() => setAnswerNumber(3)}>
-            3 <span></span>
+          <button
+            className="finishButton1"
+            style={{ width: "33%", height: "200%", marginTop: "110px" }}
+            onClick={() => setAnswerNumber(3)}
+          >
+            3
           </button>
-          <button onClick={() => setAnswerNumber(4)}>
-            4 <span></span>
+          <button
+            className="finishButton1"
+            style={{ width: "33%", height: "200%", marginTop: "110px" }}
+            onClick={() => setAnswerNumber(4)}
+          >
+            4
           </button>
         </div>
       )}
