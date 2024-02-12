@@ -10,7 +10,7 @@ function QuizMode(props) {
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
-  const [answerNumber, setAnswerNumber] = useState();
+  const [answerNumber, setAnswerNumber] = useState(); //this should be asked if U want adjustable nuber of answers
   const navigate = useNavigate();
 
   function randomNumber(number) {
@@ -86,7 +86,7 @@ function QuizMode(props) {
 
   return (
     <div className="App">
-      {answerNumber ? (
+      {
         randomCountry &&
         fourCountryName && (
           <div className="quizMain">
@@ -158,34 +158,7 @@ function QuizMode(props) {
             <ToastContainer theme="dark" />
           </div>
         )
-      ) : (
-        <div>
-          <h1 className="title">
-            From how many possible answers do you want to choose
-          </h1>
-          <button
-            className="finishButton1"
-            style={{ width: "33%", height: "200%", marginTop: "110px" }}
-            onClick={() => setAnswerNumber(2)}
-          >
-            2
-          </button>
-          <button
-            className="finishButton1"
-            style={{ width: "33%", height: "200%", marginTop: "110px" }}
-            onClick={() => setAnswerNumber(3)}
-          >
-            3
-          </button>
-          <button
-            className="finishButton1"
-            style={{ width: "33%", height: "200%", marginTop: "110px" }}
-            onClick={() => setAnswerNumber(4)}
-          >
-            4
-          </button>
-        </div>
-      )}
+}
     </div>
   );
 }
