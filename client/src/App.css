@@ -1,16 +1,16 @@
-.App {
+/* .App {
   text-align: center;
   overflow-y: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#root {
+/* #root {
   background-image: url("welcomeScreen.jpg");
   background-size: cover;
-  height: 100vh;
+  height:100vh;
   background-attachment: fixed;
-}
+} 
 
 .App-logo {
   height: 40vmin;
@@ -447,4 +447,4 @@ tr.scoreEntry td {
 }
 .flagContainer > img {
   max-height: 300px;
-}
+} */
