@@ -8,12 +8,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import QuizMode from "./components/QuizMode";
 import LeaderBoard from "./components/LeaderBoard";
 import Register from "./components/Register";
-
+import Main from "./components/Main";
 
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <App />,
+      element: <Main/>,
       children: [
         {
           path: "/login",
@@ -27,10 +27,15 @@ const router = createBrowserRouter([
             path:"/leaderboard",
             element:<LeaderBoard/>
         },
-        // {
-        //   path:"/register",
-        //   element:<Register/>
-        // }
+        {
+          path:"/register",
+          element:<Register/>
+        },  
+        {
+          path:"/side",
+          element:<App/>
+        }
+
       ],
     },
   ]);
