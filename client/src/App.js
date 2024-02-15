@@ -1,85 +1,28 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import "./App.css";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import ChooseGame from "./components/ChooseGame";
-import QuizMode from "./components/QuizMode";
-import Game from "./components/Game";
-import LeaderBoard from "./components/LeaderBoard";
-import { Outlet } from "react-router-dom";
+import React, { useState } from 'react';
+import './styles/App.css';
 
 function App() {
-  const [data, setData] = useState([]);
-  const [searchBy, setSearchBy] = useState("");
-  const [user, setUser] = useState();
-  const [sortedUsers, setSortedUsers] = useState([]);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((res) => res.json())
-      .then((data) => {
-        const nameAndFlag = data.map((cou) => {
-          return {
-            name: cou.name.common,
-            flag: cou.flags.png,
-            region: cou.region,
-            capital: cou.capital,
-          };
-        });
-        setData(nameAndFlag);
-      })
-      .catch((e) => console.log(e));
-  }, []);
+  const handleOpen = () => {
+    setIsDrawerOpen(!isDrawerOpen)
+  };
 
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Login setUser={setUser} />,
-  //   },
-
-  //   {
-  //     path: "/register",
-  //     element: <Register setUser={setUser} />,
-  //   },
-  //   {
-  //     path: "/quiz",
-  //     element: (
-  //       <QuizMode data={data} user={user} setSortedUsers={setSortedUsers} />
-  //     ),
-  //   },
-  //   {
-  //     path: "/game",
-  //     element: (
-  //       <div className="gameDiv">
-  //         <Game
-  //           data={data}
-  //           searchBy={searchBy}
-  //           setSearchBy={setSearchBy}
-  //           user={user}
-  //           setSortedUsers={setSortedUsers}
-  //         />
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     path: "/leaderboard",
-  //     element: (
-  //       <div className="leaderboard">
-  //         <h1>High scores </h1>
-  //         <LeaderBoard sortedUsers={sortedUsers} setUser={setUser} />
-  //       </div>
-  //     ),
-  //   },
-  // ]);
   return (
-    <div className="App">
-      {user ? (<QuizMode data={data} user={user} setSortedUsers={setSortedUsers} />) :
-        (<Login setUser={setUser} />)
-      }
-      {/* <Outlet/> */}
-    </div>
-      
+    <div className={isDrawerOpen === true ? "sidebar-main" : "sidebar-main-closed"}>
+      <div>
+        <div className={isDrawerOpen === true ? "open" : "closed"} onClick={handleOpen}>{isDrawerOpen==true?<i class="fa-classic fa-solid fa-chevron-left"></i>:<i class="fa-classic fa-solid fa-chevron-right"></i>}</div>
+      </div>
+      <div  className={isDrawerOpen === true ? "" : "sidebar-hidden"}>
+        <i className="fa-solid fa-user" ></i>
+      </div>
+      <div className={isDrawerOpen === true ? "btn" : "sidebar-hidden"}>
+        <button>Game Modes</button>
+        <button>Settings</button>
+        <button>High Scores</button>
+        <button className='logout'>Logout</button>
+      </div>
+      </div>
   );
 }
 
