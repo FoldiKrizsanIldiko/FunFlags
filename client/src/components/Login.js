@@ -26,20 +26,25 @@ function Login(props) {
   
   return (
     <div className="bg">
+      <div className="form">
       <form onSubmit={(event) => handleSubmit(event)}>
-        <h3>Login Here</h3>
+        <img  src="../globe.png" className="globe"/>
+        <h3 className="welcome">WELCOME</h3>
+        <p className="paragraph-1">This is an educational game. <br></br>You have to guess which country’s<br></br> flag is displayed.<br></br>Before you start, please log in:</p>
 
-        <label htmlFor="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" required={true} />
+        <div className="bg-input">
+        <input type="text" placeholder="Username" id="username" required={true}  />
+        <input type="password" placeholder="Password" id="password" required={true} className="password" />
+        </div>
+        <div className="login-div">
+        <button className="login" >Log In</button>
 
-        <label htmlFor="password">Password</label>
-        <input type="password" placeholder="Password" id="password" required={true} />
-
-        <button >Log In</button>
+        </div>
         <div className="social">
-          <div className="go" onClick={()=>navigate("/register")}>Register now </div>
+          <div className="go" title="Registration disabled">Register</div>
         </div>
       </form>
+      </div>
 
     </div>
 
