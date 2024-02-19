@@ -33,11 +33,11 @@ function Login(props) {
         <p className="paragraph-1">This is an educational game. <br></br>You have to guess which country’s<br></br> flag is displayed.<br></br>Before you start, please log in:</p>
 
         <div className="bg-input">
-        <input type="text" placeholder="Username" id="username" required={true}  />
-        <input type="password" placeholder="Password" id="password" required={true} className="password" />
+        <input type="text" placeholder="Username" required={true} />
+        <input type="password" placeholder="Password" required={true} className="password" />
         </div>
         <div className="login-div">
-        <button className="login" >Log In</button>
+        <button className="login">Log In</button>
 
         </div>
         <div className="social">
