@@ -70,7 +70,8 @@ function Main() {
   // ]);
   return (
     <div>
-  
+      <Login setUser={setUser} />,
+      <QuizMode data={data} user={user} setSortedUsers={setSortedUsers} />
       <Outlet/>
     </div>
       
