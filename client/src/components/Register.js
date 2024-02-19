@@ -20,41 +20,40 @@ function Register(props) {
 
     newUser.password === newUser.password2
       ? fetch(
-          " https://g1npuzfff6.execute-api.eu-west-2.amazonaws.com/default/flags-post",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newUser),
-          }
+        " https://g1npuzfff6.execute-api.eu-west-2.amazonaws.com/default/flags-post",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) =>
+          typeof data === "string"
+            ? toast("Username already exists!", { theme: "dark" })
+            : (setUser(data), navigate("/chooseGameMode"))
         )
-          .then((res) => res.json())
-          .then((data) =>
-            typeof data === "string"
-              ? toast("Username already exists!", { theme: "dark" })
-              : (setUser(data), navigate("/chooseGameMode"))
-          )
       : toast("The passwords do not match!", { theme: "dark" });
   }
 
   return (
     <div className="bg">
-    <form onSubmit={(event) => handleSubmit(event)}>
-      <h3>Register now</h3>
+      <form onSubmit={(event) => handleSubmit(event)} className="register">
+        <h3 className="register-h3">Register now</h3>
+        <label htmlFor="username-register">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username" required={true} />
 
-      <label htmlFor="username">Username</label>
-      <input type="text" placeholder="Email or Phone" id="username" required={true} />
+        <label htmlFor="password" className="password-label">Password</label>
+        <input type="password" placeholder="Password" id="password-register" required={true} />
 
-      <label htmlFor="password">Password</label>
-      <input type="password" placeholder="Password" id="password" required={true} />
+        <label htmlFor="password">Password Again</label>
+        <input type="password" placeholder="Password" id="password-register" required={true} />
 
-      <label htmlFor="password">Password Again</label>
-      <input type="password" placeholder="Password" id="password" required={true} />
+        <button className="register-btn" title="Registration disabled">Register</button>
 
-      <button>Register</button>
-      
-    </form>
+      </form>
 
-  </div>
+    </div>
   );
 }
 export default Register;
