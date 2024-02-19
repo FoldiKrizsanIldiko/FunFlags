@@ -5,12 +5,14 @@
 ![Contributors](https://img.shields.io/badge/-_Contributors-red.svg?logo=github&style=for-the-badge)
 
 [![Imre Stumpf](https://img.shields.io/badge/Imre%20Stumpf-blue.svg?logo=github)][contributor1-url]
+[![Varga József Armand](https://img.shields.io/badge/Varga%20J%C3%B3zsef%20Armand-blue.svg?logo=github)][contributor4-url]
 [![Balázs Oltvolgyi](https://img.shields.io/badge/Bal%C3%A1zs%20Olv%C3%B6lgyi-blue.svg?logo=github)][contributor2-url]
 [![Földi Krizsán Ildikó](https://img.shields.io/badge/F%C3%B6ldi%20Krizs%C3%A1n%20Ildik%C3%B3-blue.svg?logo=github)][contributor3-url]
 
 ![LinkedIn][linkedin-shield]
 
 [![Imre Stumpf](https://img.shields.io/badge/-_Imre%20Stumpf-grey.svg?logo=linkedin&colorB=555)][linkedin1-url]
+[![Varga József Armand](https://img.shields.io/badge/-_Varga%20J%C3%B3zsef%20Armand-grey.svg?logo=linkedin&colorB=555)][linkedin4-url]
 [![Balázs Oltvolgyi](https://img.shields.io/badge/-_Bal%C3%A1zs%20Olv%C3%B6lgyi-grey.svg?logo=linkedin&colorB=555)][linkedin2-url]
 [![Static Badge](https://img.shields.io/badge/-_%20F%C3%B6ldi%20Krizs%C3%A1n%20Ildik%C3%B3-grey.svg?logo=linkedin&colorB=555)][linkedin3-url]
 
@@ -167,6 +169,7 @@ Project Link: [https://github.com/FoldiKrizsanIldiko/FunFlags](https://github.co
 [contributor1-url]: https://github.com/Surmi64
 [contributor2-url]: https://github.com/balazs-oltvolgyi
 [contributor3-url]: https://github.com/FoldiKrizsanIldiko
+[contributor4-url]: https://github.com/Mondi18
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
 [forks-url]: https://github.com/FoldiKrizsanIldiko/FunFlags/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
@@ -179,6 +182,7 @@ Project Link: [https://github.com/FoldiKrizsanIldiko/FunFlags](https://github.co
 [linkedin1-url]: https://www.linkedin.com/in/istumpf/
 [linkedin2-url]: https://www.linkedin.com/in/balazs-o/
 [linkedin3-url]: https://www.linkedin.com/in/ildiko-foldi-krizsan/
+[linkedin4-url]:https://www.linkedin.com/in/armand-varga/
 [product-screenshot]: client/public/scrsh1.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
