@@ -2,24 +2,47 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-
+import { UserContext } from "./Main";
+import { RestCountriesContext} from "./Main";
+import { useContext } from "react";
+import App from "../App";
 function QuizMode(props) {
   const activeUser = props.user;
-  const restCountriesAll = props.data;
-  const setSortedUsers = props.setSortedUsers;
+  //const data = props.data;
+  
+  //const setSortedUsers = props.setSortedUsers;
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
-  const [answerNumber, setAnswerNumber] = useState(); //this should be asked if U want adjustable nuber of answers
+  const [answerNumber, setAnswerNumber] = useState(4); //this should be asked if U want adjustable nuber of answers
+  //const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const {user,setUser}=useContext(UserContext)
+  const {data,setData}=useContext(RestCountriesContext);
 
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
   }
 
   function randomFlagAndName() {
-    setRandomCountry(restCountriesAll[randomNumber(restCountriesAll.length)]);
+    setRandomCountry(data[randomNumber(data.length)]);
   }
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((res) => res.json())
+      .then((data) => {
+        const nameAndFlag = data.map((cou) => {
+          return {
+            name: cou.name.common,
+            flag: cou.flags.png,
+            region: cou.region,
+            capital: cou.capital,
+          };
+        });
+        setData(nameAndFlag);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   async function updateUserScore() {
     try {
@@ -32,8 +55,8 @@ function QuizMode(props) {
         }
       );
       const data = await res.json();
-      setSortedUsers(data);
-      navigate("/leaderboard");
+      // setSortedUsers(data);
+      // navigate("/leaderboard");
     } catch (error) {
       console.error("Something went wrong!");
     }
@@ -60,7 +83,7 @@ function QuizMode(props) {
   function generateCountryOptions() {
     const countryOptions = [];
     while (countryOptions.length < answerNumber) {
-      const temp = restCountriesAll[randomNumber(restCountriesAll.length)].name;
+      const temp = data[randomNumber(data.length)].name;
       if (!countryOptions.includes(temp)) {
         countryOptions.push(temp);
       }
