@@ -1,17 +1,19 @@
 import React from "react";
-import { useState, useEffect,createContext } from "react";
-import Login from "./Login";
-import QuizMode from "./QuizMode";
+import { useState, useEffect, createContext } from "react";
 import { Outlet } from "react-router-dom";
+import QuizMode from "./QuizMode";
+import Login from "./Login";
 import App from "../App";
-export const UserContext=createContext(null);
-export const RestCountriesContext=createContext([]);
+import "../styles/Main.css";
+
+export const UserContext = createContext(null);
+export const RestCountriesContext = createContext([]);
+
 function Main() {
   const [data, setData] = useState([]);
   const [searchBy, setSearchBy] = useState("");
   const [user, setUser] = useState(null);
   const [sortedUsers, setSortedUsers] = useState([]);
-  
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -70,19 +72,22 @@ function Main() {
   //     ),
   //   },
   // ]);
+
   return (
     <div>
-      <RestCountriesContext.Provider value={{data,setData}}>
-      <UserContext.Provider value={{user,setUser}}>
-      <QuizMode setSortedUsers={setSortedUsers} />
-      {!user? <Login/>:
-      <>
-      <App/>
-      <Outlet/>
-      </>
-      }
-    </UserContext.Provider>
-    </RestCountriesContext.Provider>
+      <RestCountriesContext.Provider value={{ data, setData }}>
+        <UserContext.Provider value={{ user, setUser }}>
+          <QuizMode setSortedUsers={setSortedUsers} />
+          {!user ? (
+            <Login />
+          ) : (
+            <div className="game-area">
+              <App />
+              <Outlet />
+            </div>
+          )}
+        </UserContext.Provider>
+      </RestCountriesContext.Provider>
     </div>
   );
 }
