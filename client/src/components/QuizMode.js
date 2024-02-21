@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./Main";
-import { RestCountriesContext} from "./Main";
-import { useContext } from "react";
+import { RestCountriesContext, UserContext } from "./Main";
+import "../styles/QuizMode.css";
 import App from "../App";
+
 function QuizMode(props) {
   const activeUser = props.user;
-  //const data = props.data;
-  
+
   //const setSortedUsers = props.setSortedUsers;
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
@@ -17,8 +16,8 @@ function QuizMode(props) {
   const [answerNumber, setAnswerNumber] = useState(4); //this should be asked if U want adjustable nuber of answers
   //const [data, setData] = useState([]);
   const navigate = useNavigate();
-  const {user,setUser}=useContext(UserContext)
-  const {data,setData}=useContext(RestCountriesContext);
+  const { user, setUser } = useContext(UserContext);
+  const { data, setData } = useContext(RestCountriesContext);
 
   function randomNumber(number) {
     return Math.floor(Math.random() * number);
@@ -27,6 +26,7 @@ function QuizMode(props) {
   function randomFlagAndName() {
     setRandomCountry(data[randomNumber(data.length)]);
   }
+
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -108,81 +108,70 @@ function QuizMode(props) {
   }, [randomCountry]);
 
   return (
-    <div className="App">
-      {
-        randomCountry &&
-        fourCountryName && (
-          <div className="quizMain">
-            <div className="flagContainer">
-              <img className="quizFlag" src={randomCountry.flag} />
+    randomCountry &&
+    fourCountryName && (
+      <div className="quiz-container">
+        <div className="game-title">
+          <h2>This flag belongs to...</h2>
+        </div>
+        <div className="quiz-main-container">
+          <div className="qmc-left">
+            <img className="actual-flag" src={randomCountry.flag} />
+            <div className="qmc-options">
+              <button
+                className="qcm-button"
+                key={1}
+                value={fourCountryName[0]}
+                onClick={(e) => selectCountry(e.target.value)}
+              >
+                {fourCountryName[0]}
+              </button>
+              <button
+                className="qcm-button"
+                key={2}
+                value={fourCountryName[1]}
+                onClick={(e) => selectCountry(e.target.value)}
+              >
+                {fourCountryName[1]}
+              </button>
+              <button
+                className="qcm-button"
+                key={3}
+                value={fourCountryName[2]}
+                onClick={(e) => selectCountry(e.target.value)}
+              >
+                {fourCountryName[2]}
+              </button>
+              <button
+                className="qcm-button"
+                key={4}
+                value={fourCountryName[3]}
+                onClick={(e) => selectCountry(e.target.value)}
+              >
+                {fourCountryName[3]}
+              </button>
             </div>
-            <h1 className="title">Flag of ...</h1>
-            <div className="firstRow">
-              <div className="answer">
-                <button
-                  className="finishButton"
-                  key={1}
-                  value={fourCountryName[0]}
-                  onClick={(e) => selectCountry(e.target.value)}
-                >
-                  {fourCountryName[0]}
-                  <span></span>
-                </button>
-              </div>
-              <div className="answer">
-                <button
-                  className="finishButton"
-                  key={2}
-                  value={fourCountryName[1]}
-                  onClick={(e) => selectCountry(e.target.value)}
-                >
-                  {fourCountryName[1]}
-                  <span></span>
-                </button>
-              </div>
-            </div>
-            <div className="secondRow">
-              <div className="answer">
-                <button
-                  className="finishButton"
-                  key={3}
-                  value={fourCountryName[2]}
-                  onClick={(e) => selectCountry(e.target.value)}
-                >
-                  {fourCountryName[2]}
-                  <span></span>
-                </button>
-              </div>
-              <div className="answer">
-                <button
-                  className="finishButton"
-                  key={4}
-                  value={fourCountryName[3]}
-                  onClick={(e) => selectCountry(e.target.value)}
-                >
-                  {fourCountryName[3]}
-                  <span></span>
-                </button>
-              </div>
-            </div>
-            <div className="quizScore">Your score: {quizScore}</div>
-            <button
-              className="finishButton"
-              onClick={() => {
-                updateUserScore();
-                navigate("/chooseGameMode");
-              }}
-            >
-              Back to game modes<span></span>
-            </button>
-            <button className="finishButton" onClick={updateUserScore}>
-              Finish Game<span></span>
-            </button>
-            <ToastContainer theme="dark" />
           </div>
-        )
-}
-    </div>
+          <div className="qmc-right">
+            <div className="hint-and-helps"></div>
+            <div className="score">
+              <div className="quizScore">Your score: {quizScore}</div>
+            </div>
+            <div className="finish-game">
+              <button
+                className="finishButton"
+                onClick={() => {
+                  updateUserScore();
+                }}
+              >
+                Finish Game
+              </button>
+            </div>
+          </div>
+        </div>
+        <ToastContainer theme="dark" />
+      </div>
+    )
   );
 }
 
