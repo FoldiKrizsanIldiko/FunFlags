@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { RestCountriesContext, UserContext } from "./Main";
 import "../styles/QuizMode.css";
-import App from "../App";
 
 function QuizMode(props) {
   const activeUser = props.user;
@@ -111,15 +110,19 @@ function QuizMode(props) {
     randomCountry &&
     fourCountryName && (
       <div className="quiz-container">
-        <div className="game-title">
-          <h2>This flag belongs to...</h2>
+        <div className="title-container">
+          <div className="game-title">
+            <h2>This flag belongs to...</h2>
+          </div>
         </div>
         <div className="quiz-main-container">
           <div className="qmc-left">
-            <img className="actual-flag" src={randomCountry.flag} />
+            <div className="flag-container">
+              <img className="actual-flag" src={randomCountry.flag} />
+            </div>
             <div className="qmc-options">
               <button
-                className="qcm-button"
+                className="qmc-button"
                 key={1}
                 value={fourCountryName[0]}
                 onClick={(e) => selectCountry(e.target.value)}
@@ -127,7 +130,7 @@ function QuizMode(props) {
                 {fourCountryName[0]}
               </button>
               <button
-                className="qcm-button"
+                className="qmc-button"
                 key={2}
                 value={fourCountryName[1]}
                 onClick={(e) => selectCountry(e.target.value)}
@@ -135,7 +138,7 @@ function QuizMode(props) {
                 {fourCountryName[1]}
               </button>
               <button
-                className="qcm-button"
+                className="qmc-button"
                 key={3}
                 value={fourCountryName[2]}
                 onClick={(e) => selectCountry(e.target.value)}
@@ -143,7 +146,7 @@ function QuizMode(props) {
                 {fourCountryName[2]}
               </button>
               <button
-                className="qcm-button"
+                className="qmc-button"
                 key={4}
                 value={fourCountryName[3]}
                 onClick={(e) => selectCountry(e.target.value)}
@@ -153,11 +156,11 @@ function QuizMode(props) {
             </div>
           </div>
           <div className="qmc-right">
-            <div className="hint-and-helps">
-          hints and helps...
-            </div>
+            <div className="hint-and-helps">hints and helps...</div>
             <div className="score">
-              <div className="quizScore">Your score:<br></br> {quizScore}</div>
+              <div className="quizScore">
+                Your score:<br></br> {quizScore}
+              </div>
             </div>
             <div className="finish-game">
               <button
@@ -166,7 +169,7 @@ function QuizMode(props) {
                   updateUserScore();
                 }}
               >
-                Finish Game
+                Save
               </button>
             </div>
           </div>

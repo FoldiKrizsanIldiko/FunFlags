@@ -29,17 +29,23 @@
   backdrop-filter: blur(0.625rem);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  background-image: linear-gradient(to right top, #52edaffc, #82f29c, #abf689, #d2f87a, #f9f871);
+  background-image: linear-gradient(
+    to right top,
+    #52edaffc,
+    #82f29c,
+    #abf689,
+    #d2f87a,
+    #f9f871
+  );
   padding: 50px 35px;
 }
 
 form * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: black;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
-
 }
 
 form h3 {
@@ -62,7 +68,7 @@ input {
   height: 6rem;
 
   /* Description */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.375rem;
@@ -72,14 +78,12 @@ input {
   align-items: center;
 
   /* Dark */
-  color: #1D436F;
-
+  color: #1d436f;
 
   /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
-
 
   /* Input */
 
@@ -97,7 +101,7 @@ input {
   height: 2rem;
 
   /* Dark */
-  border-bottom: 0.063rem solid #1D436F;
+  border-bottom: 0.063rem solid #1d436f;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 
@@ -107,7 +111,6 @@ input {
   align-self: stretch;
   flex-grow: 0;
 
-
   /* Name: */
 
   margin: 0 auto;
@@ -115,7 +118,7 @@ input {
   height: 2.5rem;
 
   /* Description */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1rem;
@@ -125,8 +128,7 @@ input {
   align-items: center;
 
   /* Dark */
-  color: #1D436F;
-
+  color: #1d436f;
 
   /* Inside auto layout */
   flex: none;
@@ -138,8 +140,11 @@ input {
   color: black;
 }
 
-button {
+.login {
   margin-top: 50px;
+}
+
+button {
   width: 100%;
   background-color: #ffffff;
   color: #080710;
@@ -166,7 +171,6 @@ button {
   color: black;
   text-align: center;
   cursor: pointer;
-
 }
 
 .social div:hover {
@@ -181,7 +185,6 @@ button {
   margin-right: 4px;
 }
 
-
 .login-div {
   display: flex;
   flex-direction: row;
@@ -190,15 +193,15 @@ button {
 }
 
 .login {
-  border: 1px solid #1D436F;
-  box-shadow: 0px 4px 4px #FFF7D6;
+  border: 1px solid #1d436f;
+  box-shadow: 0px 4px 4px #fff7d6;
   border-radius: 20px;
   box-sizing: border-box;
   width: 14rem;
   height: 3rem;
-  background-color: #1D436F;
-  color: #F9F871;
-  font-family: 'Inter';
+  background-color: #1d436f;
+  color: #f9f871;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -208,12 +211,11 @@ button {
   align-items: center;
   text-align: center;
   justify-content: center;
-
 }
 
 .social .go {
-  border: 1px solid #1D436F;
-  box-shadow: 0px 4px 4px #FFF7D6;
+  border: 1px solid #1d436f;
+  box-shadow: 0px 4px 4px #fff7d6;
   border-radius: 20px;
   box-sizing: border-box;
   /* Auto layout */
@@ -229,16 +231,15 @@ button {
   font-weight: 700;
 
   /* G5 */
-  background: #F9F871;
+  background: #f9f871;
   opacity: 0.5;
-
 }
 
 .welcome {
   margin: 0 auto;
   width: 25rem;
   height: 2.5rem;
-  font-family: 'Krona One';
+  font-family: "Krona One";
   font-style: normal;
   font-weight: 700;
   font-size: 2.2rem;
@@ -246,7 +247,7 @@ button {
   display: flex;
   align-items: center;
   text-align: center;
-  color: #1D436F;
+  color: #1d436f;
   margin-top: 1rem;
   text-shadow: 0px 4px 4px #839580;
   /* Inside auto layout */
@@ -272,7 +273,7 @@ button {
 
 .bg-input {
   margin-top: -2rem;
-  background-color: #ABF689;
+  background-color: #abf689;
   border-radius: 20px;
   height: 120px;
   padding: 1rem;
@@ -285,7 +286,7 @@ button {
   margin-top: 1rem;
   margin-bottom: 3rem;
   /* Description */
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.2rem;
@@ -295,6 +296,6 @@ button {
   align-items: center;
   text-align: center;
   /* Dark */
-  color: #1D436F;
+  color: #1d436f;
   margin-left: 2rem;
 }

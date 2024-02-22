@@ -11,6 +11,9 @@
   padding-left: 20px;
   padding-right: 20px;
   height: 100%;
+  animation-name: sidebar-opening;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .btn button {
@@ -28,10 +31,19 @@
 
 .sidebar-main-closed {
   width: 30px;
-  background-color: #1d436f;
+  background-image: linear-gradient(
+    to right top,
+    #52edaffc,
+    #82f29c,
+    #abf689,
+    #d2f87a,
+    #f9f871
+  );
   height: 100%;
   padding-left: 2px;
   padding-right: 2px;
+  animation-name: sidebar-closing;
+  animation-duration: 1s;
 }
 
 .sidebar-main-closed > .btn {
@@ -44,11 +56,12 @@
   justify-content: flex-end;
   color: #1d436f;
 }
+
 .closed {
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
-  color: #d2f87a;
+  color: #1d436f;
   padding: 0.5rem;
   font-weight: 900;
 }
@@ -62,6 +75,7 @@
   height: 50px;
   color: gray;
 }
+
 .fa-user {
   scale: 5;
   color: #1d436f;
@@ -71,15 +85,80 @@
   margin-bottom: 6rem;
   margin-top: 2rem;
 }
+
 .fa-chevron-left {
   scale: 2;
   margin-top: 2rem;
 }
+
 .fa-chevron-right {
   scale: 2;
   margin-top: 2rem;
 }
+
 .sidebar-hidden {
   display: none;
   height: 100%;
+}
+
+@keyframes sidebar-closing {
+  from {
+    width: 14rem;
+    background-image: linear-gradient(
+      to right top,
+      #52edaffc,
+      #82f29c,
+      #abf689,
+      #d2f87a,
+      #f9f871
+    );
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+  }
+  to {
+    width: 30px;
+    background-image: linear-gradient(
+      to right top,
+      #52edaffc,
+      #82f29c,
+      #abf689,
+      #d2f87a,
+      #f9f871
+    );
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@keyframes sidebar-opening {
+  from {
+    width: 30px;
+    background-image: linear-gradient(
+      to right top,
+      #52edaffc,
+      #82f29c,
+      #abf689,
+      #d2f87a,
+      #f9f871
+    );
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  to {
+    width: 14rem;
+    background-image: linear-gradient(
+      to right top,
+      #52edaffc,
+      #82f29c,
+      #abf689,
+      #d2f87a,
+      #f9f871
+    );
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+  }
 }
