@@ -153,9 +153,11 @@ function QuizMode(props) {
             </div>
           </div>
           <div className="qmc-right">
-            <div className="hint-and-helps"></div>
+            <div className="hint-and-helps">
+          hints and helps...
+            </div>
             <div className="score">
-              <div className="quizScore">Your score: {quizScore}</div>
+              <div className="quizScore">Your score:<br></br> {quizScore}</div>
             </div>
             <div className="finish-game">
               <button

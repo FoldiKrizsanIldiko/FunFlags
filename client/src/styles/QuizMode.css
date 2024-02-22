@@ -18,9 +18,90 @@
   justify-content: space-around;
 }
 
+.actual-flag {
+  box-shadow: 0 0 25px 5px #b6b666;
+  scale: 0.8;
+  width: 18em;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  background-color: #1D436F;
+  
+}
+
 .game-title {
-  width: 60rem;
+  width: 40rem;
   text-align: center;
+  background-color: rgba(29, 67, 111, 0.7);
+  border-radius: 20px;
+  color: #F9F871;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Krona One';
+  font-style: normal;
+  font-size: 20px;
+  line-height: 55px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.hint-and-helps {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+
+  width: 19rem;
+  height: 6rem;
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  color: #1D436F;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.quizScore {
+  background-color: rgba(29, 67, 111, 0.7);
+  border-radius: 20px;
+  width: 13rem;
+  height: 4rem;
+
+  color: #d2f87a;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.finishButton {
+  border: 1px solid #D2F87A;
+  box-shadow: 0px 4px 4px #FFF7D6;
+  border-radius: 20px;
+  background-color: #1D436F;
+  color: #D2F87A;
+
+}
+
+.qmc-left {
+  background: rgba(29, 67, 111, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  height: 26.5rem;
+  border-radius: 20px;
 }
 
 .qmc-left,
@@ -28,15 +109,13 @@
   width: 40%;
   display: flex;
   flex-direction: column;
-}
-
-.actual-flag {
-  scale: 0.8;
+  justify-content: center;
+  align-items: center;
 }
 
 .qcm-button {
-  width: 15rem;
-  background: #1d436f;
+  width: 16rem;
+  background-image: linear-gradient(to right top, #52edaffc, #82f29c, #abf689, #d2f87a, #f9f871);
   color: #d2f87a;
   display: flex;
   flex-direction: column;
@@ -45,4 +124,8 @@
   margin-top: 2rem;
   height: 3rem;
   border: 1px solid #1d436f;
+  color: #1D436F;
+
+  margin-top: 1rem;
+  box-shadow: 0px 4px 4px #F9F871;
 }
