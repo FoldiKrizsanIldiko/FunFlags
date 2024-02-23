@@ -1,21 +1,16 @@
+import "../styles/QuizMode.css";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 import { RestCountriesContext, UserContext } from "./Main";
-import "../styles/QuizMode.css";
 
-function QuizMode(props) {
-  const activeUser = props.user;
-
-  //const setSortedUsers = props.setSortedUsers;
+function QuizMode() {
+  const [sortedUsers, setSortedUsers] = useState([]);
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
-  const [answerNumber, setAnswerNumber] = useState(4); //this should be asked if U want adjustable nuber of answers
-  //const [data, setData] = useState([]);
-  const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const [answerNumber] = useState(4);
+  const { user } = useContext(UserContext);
   const { data, setData } = useContext(RestCountriesContext);
 
   function randomNumber(number) {
@@ -41,6 +36,7 @@ function QuizMode(props) {
         setData(nameAndFlag);
       })
       .catch((e) => console.log(e));
+    randomFlagAndName();
   }, []);
 
   async function updateUserScore() {
@@ -50,11 +46,12 @@ function QuizMode(props) {
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: activeUser.name, score: quizScore }),
+          body: JSON.stringify({ name: user.name, score: quizScore }),
         }
       );
       const data = await res.json();
-      // setSortedUsers(data);
+      setSortedUsers(data);
+      console.log(sortedUsers);
       // navigate("/leaderboard");
     } catch (error) {
       console.error("Something went wrong!");
@@ -62,7 +59,6 @@ function QuizMode(props) {
   }
 
   function selectCountry(answer) {
-    console.log(answer);
     if (answer === randomCountry.name) {
       setQuizScore(quizScore + 5);
       toast.success("You're right! Next round!", {
@@ -94,15 +90,6 @@ function QuizMode(props) {
   }
 
   useEffect(() => {
-    randomFlagAndName();
-    activeUser &&
-      toast.info(`Logged in as ${activeUser.name}`, {
-        theme: "colored",
-        autoClose: 3000,
-      });
-  }, [answerNumber]);
-
-  useEffect(() => {
     randomCountry && generateCountryOptions();
   }, [randomCountry]);
 
@@ -118,7 +105,11 @@ function QuizMode(props) {
         <div className="quiz-main-container">
           <div className="qmc-left">
             <div className="flag-container">
-              <img className="actual-flag" src={randomCountry.flag} />
+              <img
+                alt="flag"
+                className="actual-flag"
+                src={randomCountry.flag}
+              />
             </div>
             <div className="qmc-options">
               <button
@@ -159,7 +150,8 @@ function QuizMode(props) {
             <div className="hint-and-helps">hints and helps...</div>
             <div className="score">
               <div className="quizScore">
-                Your score:<br></br> {quizScore}
+                <p>Your score:</p>
+                <p>{quizScore}</p>
               </div>
             </div>
             <div className="finish-game">
@@ -167,6 +159,7 @@ function QuizMode(props) {
                 className="finishButton"
                 onClick={() => {
                   updateUserScore();
+                  setQuizScore(0);
                 }}
               >
                 Save

@@ -51,9 +51,9 @@ h2 {
 }
 
 .hint-and-helps {
+  opacity: 0;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
-
   width: 19rem;
   height: 6rem;
   display: flex;
@@ -65,22 +65,37 @@ h2 {
   font-weight: 700;
   font-size: 22px;
   line-height: 30px;
-  cursor: pointer;
+  cursor: default;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
 }
 
 .quizScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(29, 67, 111, 0.7);
   border-radius: 20px;
-  width: 13rem;
-  height: 4rem;
+  width: 80%;
+  height: 80%;
   color: #d2f87a;
-  display: flex;
-  text-align: center;
-  align-items: center;
   font-size: 1.8rem;
   font-weight: 700;
-  padding: 2rem;
-  justify-content: center;
+  padding: 10px;
+}
+
+.quizScore > p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .finishButton {
@@ -140,4 +155,23 @@ h2 {
   border: 1px solid #1d436f;
   color: #1d436f;
   box-shadow: 0px 4px 4px #f9f871;
+}
+
+@media only screen and (max-width: 650px) {
+  .title-container {
+    width: fit-content;
+  }
+  .quiz-main-container {
+    flex-direction: column;
+  }
+  .qmc-left,
+  .qmc-right {
+    width: 100%;
+  }
+  .hint-and-helps {
+    display: none;
+  }
+  .score {
+    margin: 15px 0 15px 0;
+  }
 }
