@@ -2,7 +2,7 @@
   width: 14rem;
   background-image: linear-gradient(
     to right top,
-    #52edaffc,
+    #52edaf,
     #82f29c,
     #abf689,
     #d2f87a,
@@ -33,7 +33,7 @@
   width: 30px;
   background-image: linear-gradient(
     to right top,
-    #52edaffc,
+    #52edaf,
     #82f29c,
     #abf689,
     #d2f87a,
@@ -96,6 +96,13 @@
   margin-top: 2rem;
 }
 
+.open-user-icon,
+.btn {
+  animation-name: appear;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+
 .sidebar-hidden {
   display: none;
   height: 100%;
@@ -106,7 +113,7 @@
     width: 14rem;
     background-image: linear-gradient(
       to right top,
-      #52edaffc,
+      #52edaf,
       #82f29c,
       #abf689,
       #d2f87a,
@@ -120,7 +127,7 @@
     width: 30px;
     background-image: linear-gradient(
       to right top,
-      #52edaffc,
+      #52edaf,
       #82f29c,
       #abf689,
       #d2f87a,
@@ -137,7 +144,7 @@
     width: 30px;
     background-image: linear-gradient(
       to right top,
-      #52edaffc,
+      #52edaf,
       #82f29c,
       #abf689,
       #d2f87a,
@@ -151,7 +158,7 @@
     width: 14rem;
     background-image: linear-gradient(
       to right top,
-      #52edaffc,
+      #52edaf,
       #82f29c,
       #abf689,
       #d2f87a,
@@ -160,5 +167,27 @@
     padding-left: 20px;
     padding-right: 20px;
     height: 100%;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .sidebar-main {
+    position: fixed;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .sidebar-main-closed {
+    position: fixed;
+    z-index: 10;
   }
 }
