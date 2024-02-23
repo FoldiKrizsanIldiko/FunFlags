@@ -66,71 +66,44 @@ input {
   margin: 0 auto;
   width: 30rem;
   height: 6rem;
-
-  /* Description */
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.375rem;
   line-height: 1.875rem;
-  /* or 136% */
   display: flex;
   align-items: center;
-
-  /* Dark */
   color: #1d436f;
-
-  /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
-
-  /* Input */
-
   box-sizing: border-box;
-
-  /* Auto layout */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.5rem;
   gap: 1.25rem;
-
   width: 22rem;
   height: 2rem;
-
-  /* Dark */
   border-bottom: 0.063rem solid #1d436f;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
-
-  /* Inside auto layout */
   flex: none;
   order: 1;
   align-self: stretch;
   flex-grow: 0;
-
-  /* Name: */
-
   margin: 0 auto;
   width: 22rem;
   height: 2.5rem;
-
-  /* Description */
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1rem;
   line-height: 2rem;
-  /* or 136% */
   display: flex;
   align-items: center;
-
-  /* Dark */
   color: #1d436f;
-
-  /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -206,7 +179,6 @@ button {
   font-weight: 600;
   font-size: 28px;
   line-height: 34px;
-  /* identical to box height */
   display: flex;
   align-items: center;
   text-align: center;
@@ -218,7 +190,6 @@ button {
   box-shadow: 0px 4px 4px #fff7d6;
   border-radius: 20px;
   box-sizing: border-box;
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -229,8 +200,6 @@ button {
   width: 14rem;
   height: 3rem;
   font-weight: 700;
-
-  /* G5 */
   background: #f9f871;
   opacity: 0.5;
 }
@@ -250,7 +219,6 @@ button {
   color: #1d436f;
   margin-top: 1rem;
   text-shadow: 0px 4px 4px #839580;
-  /* Inside auto layout */
   flex: none;
   flex-grow: 0;
   justify-content: center;
@@ -285,17 +253,14 @@ button {
   height: 116px;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  /* Description */
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.875rem;
-  /* or 136% */
   display: flex;
   align-items: center;
   text-align: center;
-  /* Dark */
   color: #1d436f;
   margin-left: 2rem;
 }

@@ -1,13 +1,12 @@
+import "../styles/Login.css";
 import { React, useContext } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./Main";
-import "../styles/Login.css";
 
-function Login(props) {
-  //const setUser = props.setUser;
+function Login() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -29,7 +28,7 @@ function Login(props) {
     <div className="bg">
       <div className="form">
         <form onSubmit={(event) => handleSubmit(event)}>
-          <img src="../globe.png" className="globe" />
+          <img alt="globe" src="../globe.png" className="globe" />
           <h3 className="welcome">WELCOME</h3>
           <p className="paragraph-1">
             This is an educational game. <br />
