@@ -16,7 +16,7 @@ function Login() {
       .then((res) => res.json())
       .then((data) => {
         return data.name
-          ? (setUser(data), navigate("/quiz"))
+          ? (setUser(data), navigate("/quiz")) 
           : toast.error("Incorrect name and/or password!", {
               theme: "colored",
               position: "top-right",
@@ -53,7 +53,7 @@ function Login() {
           </div>
 
           <div className="social">
-            <div className="go" title="Registration disabled">
+            <div className="go" onClick={() => navigate("/register")}>
               Register
             </div>
           </div>
@@ -62,5 +62,5 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
+
