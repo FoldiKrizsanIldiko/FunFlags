@@ -5,11 +5,9 @@ import { UserContext } from "./Main";
 function Sidebar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { user, setUser } = useContext(UserContext);
-
   const handleOpen = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-
   return (
     <div
       className={isDrawerOpen === true ? "sidebar-main" : "sidebar-main-closed"}
@@ -31,6 +29,7 @@ function Sidebar() {
       >
         <i className="fa-solid fa-user"></i>
         <span>{user.name}</span>
+        <span>{user.points}</span>
       </div>
       <div className={isDrawerOpen === true ? "btn" : "sidebar-hidden"}>
         <button>Game Modes</button>
