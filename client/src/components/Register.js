@@ -39,18 +39,17 @@ function Register(props) {
   return (
     <div className="bg">
       <form onSubmit={(event) => handleSubmit(event)} className="register">
-        <h3 className="register-h3">Register now</h3>
-        <label htmlFor="username-register">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" required={true} />
-
-        <label htmlFor="password" className="password-label">Password</label>
-        <input type="password" placeholder="Password" id="password-register" required={true} />
-
-        <label htmlFor="password">Password Again</label>
-        <input type="password" placeholder="Password" id="password-register" required={true} />
-
-        <button className="register-btn" title="Registration disabled">Register</button>
-
+        <h3 className="register-h3">Registration</h3>
+        <div className="input-div">
+          <input type="text" placeholder="Email or Phone" id="username" required={true} className="input-register" />
+          <input type="email" placeholder="Email" id="username" required={true} className="input-register" />
+          <input type="password" placeholder="Password" id="password-register" required={true} className="input-register" />
+          <input type="password" placeholder="Password again" id="password-register" required={true} className="input-register" />
+        </div>
+        <div className="button-div">
+          <button className="register-btn" title="Registration disabled">Register</button>
+          <button className="cancel-btn" onClick={() => navigate("/login")}>Cancel</button>
+        </div>
       </form>
 
     </div>
