@@ -14,8 +14,8 @@
   animation-name: sidebar-opening;
   animation-duration: 1s;
   animation-timing-function: ease-out;
-
 }
+
 .btn button {
   width: 11rem;
   background: #1d436f;
@@ -71,7 +71,6 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  opacity: 0.5;
   height: 2.5rem;
   color: gray;
 }
@@ -84,7 +83,6 @@
   display: flex;
   margin-bottom: 2rem;
   margin-top: 5rem;
-
 }
 
 .fa-chevron-left {
@@ -192,17 +190,21 @@
     z-index: 10;
   }
 }
-#root > div > div > div.sidebar-main > div.open-user-icon > span{
-display: flex;
-align-items: center;
-justify-content: center;
-color:#1d436f;
-width: 11rem;
-height: 3rem;
-margin: 0 auto;
-padding-bottom: 2rem;
-font-family: "Krona One";
-font-style: normal;
-font-size: 20px;
+
+#root > div > div > div.sidebar-main > div.open-user-icon > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d436f;
+  width: 11rem;
+  height: 3rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  font-family: "Krona One";
+  font-style: normal;
+  font-size: 20px;
 }
 
+.inactive {
+  opacity: 0.5;
+}
