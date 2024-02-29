@@ -16,7 +16,7 @@ function Login() {
       .then((res) => res.json())
       .then((data) => {
         return data.name
-          ? (setUser(data), navigate("/quiz")) 
+          ? (setUser(data), navigate("/quiz"))
           : toast.error("Incorrect name and/or password!", {
               theme: "colored",
               position: "top-right",
@@ -63,4 +63,3 @@ function Login() {
   );
 }
 export default Login;
-
