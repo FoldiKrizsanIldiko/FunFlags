@@ -1,10 +1,12 @@
 import "../styles/Sidebar.css";
 import React, { useState, useContext } from "react";
 import { UserContext } from "./Main";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
   const handleOpen = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -29,12 +31,12 @@ function Sidebar() {
       >
         <i className="fa-solid fa-user"></i>
         <span>{user.name}</span>
-        <span>{user.points}</span>
+        <span>Score: {user.points}</span>
       </div>
       <div className={isDrawerOpen === true ? "btn" : "sidebar-hidden"}>
         <button>Game Modes</button>
         <button>Settings</button>
-        <button>High Scores</button>
+        <button onClick={()=>navigate("/leaderboard")}>High Scores</button>
         <button className="logout" onClick={() => setUser(null)}>
           Logout
         </button>
