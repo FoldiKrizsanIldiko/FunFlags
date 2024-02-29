@@ -1,49 +1,69 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { UserContext } from "./Main";
+import "../styles/Leaderboard.css"
+function LeaderBoard() {
 
-function LeaderBoard(props) {
-  const sortedUsers = props.sortedUsers;
   const navigate = useNavigate();
-  const setUser = props.setUser;
+  const { user, setUser } = useContext(UserContext);
+  const [quizScore, setQuizScore] = useState(0);
+  const [sortedUsers, setSortedUsers] = useState([]);
 
   function logOut() {
     setUser();
     navigate("/");
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "https://jsi3s3s492.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: user.name, score: quizScore }),
+          }
+        );
+
+        const data = await res.json();
+      setSortedUsers(data);
+        // navigate("/leaderboard");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+console.log(sortedUsers);
   return (
-    <div className="App">
-      <div className="tableContainer">
-        <table>
+
+    <div className="bg-container">
+      <div className="score-title">
+        <h2>High Scores</h2>
+      </div>
+      <table className="score-table">
           <thead>
-            <tr>
+            <tr className="table-head">
               <td className="nameCellHead">Name</td>
               <td className="scoreCellHead">Score</td>
             </tr>
           </thead>
           <tbody>
-            {sortedUsers.map((user) => (
-              <tr className="scoreEntry" key={user.name}>
-                <td className="nameCell">{user.name}</td>
-                <td className="scoreCell">{user.points}</td>
+            {sortedUsers.map((u) => (
+              <tr className="scoreEntry" key={u.name}>
+                <td className="nameCell">{u.name}</td>
+                <td className="scoreCell">{u.points}</td>
               </tr>
             ))}
           </tbody>
+          
         </table>
-        <button
-          onClick={() => navigate("/chooseGameMode")}
-          className="submitButton"
-        >
-          New Game <span></span>
-        </button>
-        <button
-          onClick={() => {
-            logOut();
-            navigate("/");
-          }}
-          className="submitButton"
-        >
-          Log out <span></span>
-        </button>
-      </div>
+            <div>
+              <button className="new-game-btn" onClick={()=>navigate("/quiz")}>Back to the game</button>
+              <button className="logout-btn" onClick={()=>logOut()}>Log Out</button>
+            </div>
     </div>
   );
 }
