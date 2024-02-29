@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { RestCountriesContext, UserContext } from "./Main";
 
 function QuizMode() {
-  const [sortedUsers, setSortedUsers] = useState([]);
+
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
@@ -38,8 +38,7 @@ function QuizMode() {
       .catch((e) => console.log(e));
     randomFlagAndName();
   }, []);
-
-  async function updateUserScore() {
+  const fetchData = async () => {
     try {
       const res = await fetch(
         "https://jsi3s3s492.execute-api.eu-west-2.amazonaws.com/default/flags-patch",
@@ -49,14 +48,15 @@ function QuizMode() {
           body: JSON.stringify({ name: user.name, score: quizScore }),
         }
       );
+
       const data = await res.json();
-      setSortedUsers(data);
-      console.log(sortedUsers);
+    //setSortedUsers(data);
       // navigate("/leaderboard");
     } catch (error) {
-      console.error("Something went wrong!");
+      console.error(error);
     }
-  }
+  };
+ 
 
   function selectCountry(answer) {
     if (answer === randomCountry.name) {
@@ -158,7 +158,7 @@ function QuizMode() {
               <button
                 className="finishButton"
                 onClick={() => {
-                  updateUserScore();
+                 // updateUserScore();
                   setQuizScore(0);
                 }}
               >
