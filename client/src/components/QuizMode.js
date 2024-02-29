@@ -5,7 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { RestCountriesContext, UserContext } from "./Main";
 
 function QuizMode() {
-
   const [randomCountry, setRandomCountry] = useState();
   const [fourCountryName, setFourCountryName] = useState([]);
   const [quizScore, setQuizScore] = useState(0);
@@ -38,6 +37,7 @@ function QuizMode() {
       .catch((e) => console.log(e));
     randomFlagAndName();
   }, []);
+
   const fetchData = async () => {
     try {
       const res = await fetch(
@@ -48,15 +48,13 @@ function QuizMode() {
           body: JSON.stringify({ name: user.name, score: quizScore }),
         }
       );
-
       const data = await res.json();
-    //setSortedUsers(data);
-      // navigate("/leaderboard");
+      user.points += quizScore;
+      setQuizScore(0);
     } catch (error) {
       console.error(error);
     }
   };
- 
 
   function selectCountry(answer) {
     if (answer === randomCountry.name) {
@@ -155,13 +153,7 @@ function QuizMode() {
               </div>
             </div>
             <div className="finish-game">
-              <button
-                className="finishButton"
-                onClick={() => {
-                 // updateUserScore();
-                  setQuizScore(0);
-                }}
-              >
+              <button className="finishButton" onClick={fetchData}>
                 Save
               </button>
             </div>
