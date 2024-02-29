@@ -7,9 +7,11 @@ function Sidebar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
+
   const handleOpen = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
   return (
     <div
       className={isDrawerOpen === true ? "sidebar-main" : "sidebar-main-closed"}
@@ -34,9 +36,19 @@ function Sidebar() {
         <span>Score: {user.points}</span>
       </div>
       <div className={isDrawerOpen === true ? "btn" : "sidebar-hidden"}>
-        <button>Game Modes</button>
-        <button>Settings</button>
-        <button onClick={()=>navigate("/leaderboard")}>High Scores</button>
+        <button
+          title="This function is not implemented yet!"
+          className="inactive"
+        >
+          Game Modes
+        </button>
+        <button
+          title="This function is not implemented yet!"
+          className="inactive"
+        >
+          Settings
+        </button>
+        <button onClick={() => navigate("/leaderboard")}>High Scores</button>
         <button className="logout" onClick={() => setUser(null)}>
           Logout
         </button>
