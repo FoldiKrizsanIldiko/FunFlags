@@ -104,27 +104,37 @@ Please follow next steps to set up the game.
    ```sh
    git clone https://github.com/FoldiKrizsanIldiko/FunFlags.git
    ```
-2. Navigate to the 'server' subdirectory within the cloned directory.
+2. You will need a MongoDB cluster, which you can create for free on this site: https://www.mongodb.com . Follow the instructions on the site for creating a MongoDB cluster. Once you have a MongoDB cluster, you will need a connection string. It will look similar to this example:
+    ```
+    mongodb+srv://<username>:<password>@cluster0.glajsnx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    ```
+     U have to create .env file in server folder and put that connection string to it like this:
+     ```
+    MONGO_URL="mongodb+srv://<username>:<password>@cluster0.glajsnx.mongodb.net/funflags?retryWrites=true&w=majority"
+    ```
+    U have to change the username and password with yours.
+    
+3. In terminal navigate to the 'server' subdirectory within the cloned directory.
     ```sh
     cd server
     ``` 
-3. Install NPM packages
+4. Install NPM packages
    ```sh
    npm i
    ```
-4. Start running the server
+5. Start running the server
     ```sh
     npm run dev
     ```       
-5. Navigate to the 'client' subdirectory within the cloned directory.
+6. In another terminal navigate to the 'client' subdirectory within the cloned directory.
     ```sh
     cd client
     ```   
-6. Install NPM packages
+7. Install NPM packages
    ```sh
    npm i
    ```
-7. Start running the frontend
+8. Start running the frontend
     ```sh
     npm start
     ```
