@@ -86,38 +86,7 @@ Please follow next steps to set up the game.
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/FoldiKrizsanIldiko/FunFlags.git
-   ```
-2. Navigate to the 'server' subdirectory within the cloned directory.
-   ```sh
-   cd server
-   ```
-3. Install NPM packages
-   ```sh
-   npm i
-   ```
-4. Start running the server
-   ```sh
-   npm run dev
-   ```
-5. Navigate to the 'client' subdirectory within the cloned directory.
-   ```sh
-   cd client
-   ```
-6. Install NPM packages
-   ```sh
-   npm i
-   ```
-7. Start running the frontend
-   ```sh
-   npm start
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
+You don't need to install anything on your computer. You can play the game on the website http://fwf-frontend.s3-website.eu-west-2.amazonaws.com/.
 
 ## Usage
 
@@ -127,24 +96,14 @@ You have to register when you open the game for the first time.
 <img src="./client/public/register.png" width="25%" >
 </p>
 
+<h3 style="color:blue"> !!! Temporarily, we have removed registration from our site. You can contact us for a username and password if you want to play our game. !!! </h3>
+
 You will need to log in later when you start the game.
-
-After logging in, you can choose if you want to play in quize mode or practice mode.
-
-<p align="left">
-<img src="./client/public/choose.png" width="25%" >
-</p>
 
 In quiz mode you have to click on button, with the name of country.
 
 <p align="left">
 <img src="./client/public/quizM.png" width="20%" >
-</p>
-
-In practice mode, there are a list of all countries. If you start to type in your tip, the list will be selected. You have to choose from the list, click on it, and than submit your answer, by clicking on Submit answer button.
-
-<p align="left">
-<img src="./client/public/practM.png" width="20%" >
 </p>
 
 If you want to finish the game just hit the Finish game button, and you will see the leaderboard.
