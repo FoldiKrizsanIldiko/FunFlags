@@ -88,27 +88,20 @@ Please follow next steps to set up the game.
    ```sh
    git clone https://github.com/FoldiKrizsanIldiko/FunFlags.git
    ```
-2. Navigate to the 'server' subdirectory within the cloned directory.
+2. To use this branch switch to it gy typing in terminal :
    ```sh
-   cd server
+   git checkout fki-captcha
    ```
-3. Install NPM packages
-   ```sh
-   npm i
-   ```
-4. Start running the server
-   ```sh
-   npm run dev
-   ```
-5. Navigate to the 'client' subdirectory within the cloned directory.
+3. In terminal navigate to the 'client' subdirectory within the cloned directory.
    ```sh
    cd client
    ```
-6. Install NPM packages
+4. Install NPM packages
    ```sh
    npm i
+   npm install react-simple-captcha
    ```
-7. Start running the frontend
+5. Start running the frontend
    ```sh
    npm start
    ```
